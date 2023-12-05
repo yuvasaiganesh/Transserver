@@ -32,7 +32,7 @@ initializeServer();
 
 //API 1
 app.get("/transactions/", async (request, response) => {
-  const { name, pages = 1, month=3 } = request.query;
+  const { name= "", pages = 1, month= 3 } = request.query;
 
   console.log(month);
 
