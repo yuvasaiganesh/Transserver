@@ -1,0 +1,13 @@
+###
+GET http://localhost:4000/transactions/?name=&month=3
+
+###
+GET http://localhost:4000/transactions/barChart/?month=1
+
+###
+GET http://localhost:4000/transactions/sales/?month=2
+
+###
+GET http://localhost:4000/transactions/pieChart/?month=1
+###
+GET http://localhost:4000/transactions/total/?month=3
