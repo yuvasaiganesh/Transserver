@@ -1,5 +1,5 @@
 ###
-GET http://localhost:4000/transactions/?name=&month=3
+GET http://localhost:4000/transactions/?pages=2
 
 ###
 GET http://localhost:4000/transactions/barChart/?month=1
