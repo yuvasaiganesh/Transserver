@@ -42,7 +42,7 @@ app.get("/transactions/", async (request, response) => {
   const transactionRequest = `
         SELECT * 
         FROM transactions 
-        WHERE (CAST(strftime("%m", dateofsale) as INT)=${month}) AND (price LIKE '%${name}%'
+        WHERE (CAST(strftime("%m", dateofsale) as INT)=${month}) AND (price LIKE '${name}%'
         OR descriptions LIKE '%${name}%' OR title LIKE '%${name}%')
         LIMIT ${limit}
         OFFSET ${offset}
