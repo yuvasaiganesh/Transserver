@@ -55,7 +55,7 @@ app.get("/transactions/", async (request, response) => {
 
 //API 2
 app.get("/transactions/sales/", async (request, response) => {
-  const { month } = request.query;
+  const { month=3 } = request.query;
 
   const salesRequest = `
   SELECT SUM(price) as total_price
@@ -85,7 +85,7 @@ app.get("/transactions/sales/", async (request, response) => {
 
 //API 3
 app.get("/transactions/barChart/", async (request, response) => {
-  const { month } = request.query;
+  const { month=3 } = request.query;
   const barChartRequest = `
         SELECT
             COUNT() as total_items,
@@ -119,7 +119,7 @@ app.get("/transactions/barChart/", async (request, response) => {
 
 //API 4
 app.get("/transactions/pieChart/", async (request, response) => {
-  const { month } = request.query;
+  const { month=3 } = request.query;
   const pieChartRequest = `
   SELECT DISTINCT category,
   COUNT() as total_items
@@ -132,7 +132,7 @@ app.get("/transactions/pieChart/", async (request, response) => {
 
 //API 5
 app.get("/transactions/total/", async (request, response) => {
-  const { month, name } = request.query;
+  const { month=3 } = request.query;
 
   const limit = 10;
   const offset = 0;
@@ -205,12 +205,12 @@ app.get("/transactions/total/", async (request, response) => {
   GROUP BY category;`;
   const pieChartData = await db.all(pieChartRequest);
   response.send({
-    pieChartData,
-    barChartData,
+    allTransaction,
     totalNotSold,
     totalSold,
     totalSales,
-    allTransaction,
+    pieChartData,
+    barChartData,
   });
   console.log(
     pieChartData,
